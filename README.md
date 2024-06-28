@@ -1000,3 +1000,15 @@ From "*zipped_message_proto*" has been possible to extract the following useful 
 - *original HTML page, included CSS*
 - *attachments*
 - *date*
+
+# Credits
+
+- [Protocol Buffers](https://protobuf.dev/)
+- [Utilizzo dei buffer di protocollo  |  J2ObjC  |  Google for Developers](https://developers.google.com/j2objc/guides/using-protocol-buffers?hl=it)
+- [Cellebrite CTF 2021 - Heisenberg's Android](https://www.stark4n6.com/2021/10/cellebrite-ctf-2021-heisenbergs-android.html)
+- [JSON-to-Proto: Convert JSON to Protobuf instantly](https://json-to-proto.github.io/)
+- [aj3423/protod: Decode protobuf without proto definition](https://github.com/aj3423/protod)
+- [Protobuf with GO | Skcript](https://web.archive.org/web/20230724181644/https://www.skcript.com/svr/protobuf-with-go)
+- [pa_script/android_gmail.py at master · P79N6A/pa_script](https://github.com/P79N6A/pa_script/blob/master/android_gmail.py)
+- [GmailContract.Labels.LabelCanonicalNames  |  Google for Developers](https://developers.google.com/gmail/android/com/google/android/gm/contentprovider/GmailContract.Labels.LabelCanonicalNames?hl=it)
+- [Gmail secret system labels](https://docs.google.com/spreadsheets/d/1BS8yazyPcfqbWMG2jQb8HvPvCvQsDNQ3tsp_pBh5P6Q/edit#gid=872957567)
