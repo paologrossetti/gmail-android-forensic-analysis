@@ -1,0 +1,51 @@
+syntax = "proto3";
+
+option go_package = ".";
+
+message ItemSummary {
+
+    message Conversation {
+        string server_perm_id = 1;
+        string subject = 2;
+        string snippet = 3;
+        uint64 epoch = 4;
+        uint32 unknown_bool = 13;
+        fixed64 unknown_bool_2 = 14;
+    }
+
+    message Message {
+        string server_perm_id = 1;
+        Email emails = 2;
+        uint64 epoch = 3;
+        repeated string label_types = 4;
+        fixed64 epoch_receipt_1 = 7;
+        string mailing_list = 8;
+        uint64 unknown_int = 10;
+        string snippet = 11;
+        string unknown_email = 12;
+        uint64 epoch_receipt_2 = 16;
+        uint32 int_msg = 17;
+        uint32 bool_msg = 22;
+        TwentyFourKey twenty_four = 24;
+        uint64 epoch5 = 25;
+        ThirtyNine thirty_nine = 39;
+    }
+
+    message Email {
+        uint32 id = 1;
+        string address = 2;
+        string name = 3;
+    }
+
+    message TwentyFourKey {
+        uint32 boolean_value = 3;
+        string email = 5;
+    }
+
+    message ThirtyNine {
+        uint32 integer_value = 4;
+    }
+
+    Conversation conv = 1;
+    repeated Message msgs = 2;
+}

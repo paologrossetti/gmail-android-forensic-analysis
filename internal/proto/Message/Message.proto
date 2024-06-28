@@ -1,0 +1,125 @@
+syntax = "proto3";
+
+option go_package = ".";
+
+message Message {
+
+  message Email {
+    uint32 id = 1;
+    string address = 2;
+    string name = 3;
+  }
+
+  message Html {
+    HtmlDetails html_details = 2;
+    uint32 unknown_int = 3;
+    string url_msg = 4;
+    CSS css = 5;
+    string msg_server_perm_id = 6;
+    uint32 unknown_int_2 = 7;
+    uint32 unknown_int_3 = 8;
+  }
+
+  message HtmlDetails {
+    uint32 unknown_id_1 = 1;
+    RawHTML body = 3;
+    uint32 unknown_id_2 = 4;
+  }
+
+  message RawHTML {
+    string body = 2;
+  }
+
+  message CSS {
+    string css = 7;
+  }
+
+  message SenderSecondary {
+    uint32 unknown_int_1 = 1;
+    uint32 unknown_int_2 = 2;
+    sender_3 sender_3 = 3;
+    uint64 unknown_id = 4;
+    string domain = 8;
+    string internal_domain = 9;
+    uint32 unknown_int_3 = 11;
+    uint32 unknown_int_4 = 12;
+    uint32 unknown_int_5 = 13;
+    string internal_url_provider = 14;
+    string account_name = 15;
+    string email = 17;
+    uint32 unknown_int_6 = 18;
+  }
+
+  message sender_3 {
+    string unknown = 1;
+  }
+
+  message Attachment {
+    InfoAttachment info_att = 1;
+    string internal_id = 3;
+    OtherInternalAttachInfo other_int_info = 5;
+  }
+
+  message InfoAttachment {
+    uint32 unknown_int_1 = 1;
+    string unknown_string = 2;
+    uint32 unknown_int_2 = 3;
+    InfoAttachmentDetail attach = 4;
+  }
+
+  message InfoAttachmentDetail {
+    uint32 unknown_int_1 = 1;
+    string remote_url = 2;
+    string filename = 3;
+    string mimetype = 4;
+    uint32 size = 5;
+    InfoInternalAttachmentDetail internal_info = 6;
+  }
+
+  message InfoInternalAttachmentDetail {
+    string unknown_string_1 = 1;
+    string unknown_string_2 = 2;
+  }
+
+  message OtherInternalAttachInfo {
+    string internal_route = 1;
+    uint32 size = 2;
+    uint32 unknown_int_2 = 3;
+    uint32 unknown_int_3 = 4;
+    uint32 unknown_int_4 = 5;
+    string unknown_string = 6;
+  }
+
+  message TwentyKey {
+    TwentyKeyNested twenty = 1;
+  }
+
+  message TwentyKeyNested {
+    string twenty_nested = 2;
+  }
+
+  message TwentyOneKey {
+    twenty_one_nested twenty_one = 1;
+  }
+
+  message twenty_one_nested {
+    string twenty_one_nested = 2;
+  }
+
+  repeated Email receiver = 1;
+  repeated Email cc = 2;
+  Email sender = 4;
+  string subject = 5;
+  Html html = 6;
+  string snippet = 7;
+  string internal_mail_provider_1 = 8;
+  string internal_mail_provider_2 = 9;
+  string internal_mail_provider_3 = 10;
+  SenderSecondary sender_secondary = 11;
+  Email receiver_secondary = 12;
+  repeated Attachment attachments = 14;
+  uint64 epoch = 17;
+  TwentyKey tw = 20;
+  TwentyOneKey tw_one = 21;
+  uint64 internal_id = 29;
+}
