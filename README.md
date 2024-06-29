@@ -290,15 +290,15 @@ The attention was on those configurations which had a base64 string as their val
 
 After decoding the base64 string of `<ACCOUNT_NAME>@gmail.com_MendelConfigurationMap` property, it is reported an extract of its content. None of these strings seems interesting.
 
-![](img2.png)
+![](img/img2.png)
 
 About `_MendelConfigurationMap` property, the content is very similar. Then, it was tried to find something which it was related to personal Google account. As it can be seen below, a reference to the account mail and a strange base64 string were found.
 
-![](img3.png)
+![](img/img3.png)
 
 Lastly, an online research about "com.google.android.gm_preferences.xml"  was found. After some researches online, an article ([https://refaceapp.ru/prilozheniya/kak-posmotret-paroli-na-androide-ot-gugl-pochty](https://refaceapp.ru/prilozheniya/kak-posmotret-paroli-na-androide-ot-gugl-pochty)) specifies which that file can be used to retrieve the password of own Gmail account.
 
-![](img4.png)
+![](img/img4.png)
 
 From personal experience, it doesn't seem possible to recover the password from this file.
 
@@ -327,7 +327,7 @@ How it can be deduced from filename, this file contains relavant informartion fo
 
 This file is very important. In fact, within this file, it is possibile to obtain the account configured with the application.
 
-![](img5.png)
+![](img/img5.png)
 
 ### MailAppProvider.xml
 
@@ -484,25 +484,25 @@ Some files contained raw bytes or not interesting information so it has been dec
 
 This file is very interesting. In fact, thanks to its content, it is possible to obtain the user's first and last name related to the Google account.
 
-![](img6.png)
+![](img/img6.png)
 
 ### TimeZoneStore.pb
 
 File that contains information about timezone.
 
-![](img7.png)
+![](img/img7.png)
 
 ### AccountsStore.pb
 
 File that contains information about Google account stored.
 
-![](img8.png)
+![](img/img8.png)
 
 ### PersistedInstallation.(..).json
 
 File that contains information about JWT token used by native android firebase SDK (credit: [https://forums.expo.dev/t/mysterious-file-persistedinstallation-xxxx-json-in-android-contains-an-authentication-token-what-for/50195](https://forums.expo.dev/t/mysterious-file-persistedinstallation-xxxx-json-in-android-contains-an-authentication-token-what-for/50195)).
 
-![](img9.png)
+![](img/img9.png)
 
 The following JSON payload is embedded within the JWT.
 
@@ -718,7 +718,7 @@ This table contains the following columns:
 - num_contacts
 - affinity_respone_context
 
-![](img10.png)
+![](img/img10.png)
 
 The single row in this table is used to store three informations:
 - unix timestamp about the last updated (in the personal analysis, "1635417098500" corrisponds to "Thursday 28 October 2021 10:31:38.500")
@@ -733,11 +733,11 @@ This table contains the following columns:
 - type
 - proto_bytes
 
-![](img11.png)
+![](img/img11.png)
 
 In this table there are the references to the 58 contacts that it can be seen in `CacheInfo` table. It is very interesting about the "affinity" score.  Again, with a quite likelihood, it seems that this value could be used to specify which contacts are the most frequent. For each contact, It is also very interesting the "proto_bytes" field. It contains [protobuf](https://protobuf.dev/) data. Thanks to Cyberchef, It is possible to retrieve the data in *protobuf*.
 
-![](img12.png)
+![](img/img12.png)
 
 #### RpcCache
 
@@ -747,7 +747,7 @@ This table contains the following columns:
 - timestamp
 - proto_bytes
 
-![](img13.png)
+![](img/img13.png)
 
 #### Tokens
 
@@ -777,11 +777,11 @@ In this table there are 263 rows. How it can be seen, with "contact_id", columns
  - *legacy_stored_id*
  - *legacy_first_message_storage_id*
 
-![](img14.png)
+![](img/img14.png)
 
 Columns "*item_summary_proto*" contains, as it can be deduced by its name, a summary of the single conversation "encoded" using ProtoBuf. As it is showed before, thanks to CyberChef is possible easily to retrieve its original content.
 
-![](img15.png)
+![](img/img15.png)
 
 CyberChef can reconstruct how data is structured; however, the difficult activity is to deduce the original proto definition. Therefore, based on data found, I have tried to write a proto definition for serialized data of "*item_summary_proto*".
 
@@ -859,7 +859,7 @@ Table "item_messages" represents messages stored on the device. It contains the 
  - *is_invalidated*
  - *legacy_storage_id*
 
-![](img16.png)
+![](img/img16.png)
 
 Thanks to the value of "items_row_id" is possible to get the list of the messages of a specific conversation (table "items"). In addition to this, "zipped_message_proto" is also really important; in fact, it contains the most important information of the single message. To retrive its original content, it has been necessary to perform a decompression ZLib and a translation from raw bytes of "Profobut encoding" to structured data. As before for "*item_summary_proto*", it's essential a deep analysis of decompressed "zipped_message_proto" to deduce the original proto definition. Based on data contained in the data structured, it has been possible to define the following proto definition.
 
